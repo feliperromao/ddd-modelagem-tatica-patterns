@@ -1,3 +1,15 @@
+import OrderItem from "./order-item";
+
 export default class Order {
-  
+  _id: string;
+  _customerId: string;
+  _items: OrderItem[];
+
+  constructor(id: string, customerId: string, item: OrderItem[]) {
+    this._id = id;
+    this._customerId = customerId;
+    this._items = item;
+  }
+
+
 }
