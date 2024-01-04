@@ -1,15 +1,17 @@
 import OrderItem from "./order-item";
 
 export default class Order {
-  _id: string;
-  _customerId: string;
-  _items: OrderItem[];
+  private id: string;
+  private customerId: string;
+  private items: OrderItem[];
 
   constructor(id: string, customerId: string, item: OrderItem[]) {
-    this._id = id;
-    this._customerId = customerId;
-    this._items = item;
+    this.id = id;
+    this.customerId = customerId;
+    this.items = item;
   }
 
-
+  total(): number {
+    return this.items.reduce((aac, item) => aac + item.getPrice() , 0)
+  }
 }
