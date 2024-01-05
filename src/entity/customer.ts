@@ -41,4 +41,12 @@ export default class Customer {
     setAddress(address: Address) {
         this.address = address;
     }
+
+    getName(): string {
+        return this.name;
+    }
+
+    isActive(): boolean {
+        return this.active
+    }
 }
