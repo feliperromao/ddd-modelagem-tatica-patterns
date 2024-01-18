@@ -27,6 +27,6 @@ export default class Order {
 }
 
   total(): number {
-    return this.items.reduce((aac, item) => aac + item.getPrice() , 0)
+    return this.items.reduce((aac, item) => aac + item.price , 0)
   }
 }
