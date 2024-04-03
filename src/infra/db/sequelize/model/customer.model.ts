@@ -4,7 +4,7 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
   tableName: "customer",
   timestamps: false
 })
-export default class CustomerModel extends Model {
+export default class CustomerModelSequelize extends Model {
   @PrimaryKey
   @Column({allowNull: false})
   declare id: string
@@ -13,7 +13,16 @@ export default class CustomerModel extends Model {
   declare name: string
 
   @Column({allowNull: true})
-  declare address: string
+  declare street: string
+
+  @Column({allowNull: true})
+  declare number: number
+
+  @Column({allowNull: true})
+  declare zipcode: string
+
+  @Column({allowNull: true})
+  declare city: string
 
   @Column({allowNull: false})
   declare active: boolean

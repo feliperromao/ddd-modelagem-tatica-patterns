@@ -25,7 +25,7 @@ describe("Customer entity test", () => {
     it("should change name", () => {
       const customer = new Customer("123", "Felipe")
       customer.changeName("Felipe Romao")
-      expect(customer.getName()).toBe("Felipe Romao")
+      expect(customer.name).toBe("Felipe Romao")
     })
   })
   
@@ -54,13 +54,13 @@ describe("Customer entity test", () => {
 
     it("should add reward  points", () => {
       const customer = new Customer("1", "Customer 1")
-      expect(customer.getRewardPoints()).toBe(0)
+      expect(customer.rewardPoints).toBe(0)
 
       customer.addRewardPoints(10)
-      expect(customer.getRewardPoints()).toBe(10)
+      expect(customer.rewardPoints).toBe(10)
 
       customer.addRewardPoints(10)
-      expect(customer.getRewardPoints()).toBe(20)
+      expect(customer.rewardPoints).toBe(20)
     })
   })
 })

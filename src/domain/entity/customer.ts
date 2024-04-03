@@ -1,64 +1,71 @@
 import Address from "./address";
 
 export default class Customer {
-    private id: string;
-    private name: string;
-    private address!: Address;
-    private active: boolean = false;
-    private rewardPoints: number = 0;
+    private _id: string;
+    private _name: string;
+    private _address!: Address;
+    private _active: boolean = false;
+    private _rewardPoints: number = 0;
 
     constructor(id: string, name: string) {
-        this.id = id;
-        this.name = name;
+        this._id = id;
+        this._name = name;
         this.validate();
     }
 
     validate() {
-        if (this.id.length === 0) {
+        if (this._id.length === 0) {
             throw new Error("Id is required");
         }
 
-        if (this.name.length === 0) {
+        if (this._name.length === 0) {
             throw new Error("Name is required");
         }
     }
 
     changeName(name: string) {
-        this.name = name;
+        this._name = name;
         this.validate();
     }
 
     addRewardPoints(points: number) {
-        this.rewardPoints += points;
+        this._rewardPoints += points;
     }
 
     activate() {
-        if (this.address === undefined) {
+        if (this._address === undefined) {
             throw new Error("Address is required to activade a customer")
         }
-        this.active = true;
+        this._active = true;
     }
 
     deactivate() {
-        this.active = false;
+        this._active = false;
     }
 
     setAddress(address: Address) {
-        this.address = address;
+        this._address = address;
+    }
+    
+    get adrress():Address {
+        if (this._address) {
+            return this._address
+        }
+        return null;
     }
 
-    getRewardPoints(): number {
-        return this.rewardPoints;
+    get rewardPoints(): number {
+        return this._rewardPoints;
     }
 
-    getName(): string {
-        return this.name;
+    get name(): string {
+        return this._name;
     }
-    getId(): string {
-        return this.id
+    get id(): string {
+        return this._id
     }
 
     isActive(): boolean {
-        return this.active
+        return this._active
     }
 }
