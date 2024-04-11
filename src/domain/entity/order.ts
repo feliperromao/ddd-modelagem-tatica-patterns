@@ -1,32 +1,44 @@
 import OrderItem from "./order-item";
 
 export default class Order {
-  private id: string;
-  private customerId: string;
-  private items: OrderItem[];
+  private _id: string;
+  private _customerId: string;
+  private _items: OrderItem[];
 
   constructor(id: string, customerId: string, item: OrderItem[]) {
-    this.id = id;
-    this.customerId = customerId;
-    this.items = item;
+    this._id = id;
+    this._customerId = customerId;
+    this._items = item;
     this.validate();
   }
 
   validate() {
-    if (this.id.length === 0) {
+    if (this._id.length === 0) {
       throw new Error("Id is required");
     }
 
-    if (this.customerId.length === 0) {
+    if (this._customerId.length === 0) {
       throw new Error("CustomerId is required");
     }
 
-    if (this.items.length === 0) {
+    if (this._items.length === 0) {
       throw new Error("Item qtd must be greater than zero");
     }
-}
+  }
+
+  get id(): string {
+    return this._id
+  }
+
+  get customerId(): string {
+    return this._customerId;
+  }
+
+  get items(): OrderItem[] {
+    return this._items;
+  }
 
   total(): number {
-    return this.items.reduce((aac, item) => aac + item.price , 0)
+    return this._items.reduce((aac, item) => aac + item.price, 0)
   }
 }

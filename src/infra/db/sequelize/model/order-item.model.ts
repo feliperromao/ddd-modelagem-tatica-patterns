@@ -27,7 +27,7 @@ export default class OrderitemsModelSequelize extends Model {
   declare order: OrdersModelSequelize
 
   @Column({allowNull: false})
-  declare quatity: number
+  declare quantity: number
 
   @Column({allowNull: false})
   declare name: string
