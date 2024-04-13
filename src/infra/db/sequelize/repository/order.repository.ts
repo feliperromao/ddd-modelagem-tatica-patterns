@@ -1,4 +1,4 @@
-import Order from "../../../../domain/entity/order";
+import Order from "../../../../domain/checkout/entity/order";
 // import OrderRepositoryInterface from "../../../../domain/repository/order-repository-interface";
 import OrderitemsModelSequelize from "../model/order-item.model";
 import OrdersModelSequelize from "../model/order.model";
