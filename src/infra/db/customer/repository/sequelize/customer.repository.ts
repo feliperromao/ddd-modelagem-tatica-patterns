@@ -8,10 +8,10 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
     await CustomerModelSequelize.create({
       id: entity.id,
       name: entity.name,
-      street: entity?.adrress?.street,
-      number: entity?.adrress?.number,
-      zipcode: entity?.adrress?.zip,
-      city: entity?.adrress?.city,
+      street: entity?.address?.street,
+      number: entity?.address?.number,
+      zipcode: entity?.address?.zip,
+      city: entity?.address?.city,
       active: entity.isActive(),
       rewardPoints: entity.rewardPoints
     })
@@ -54,10 +54,10 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
   async update(entity: Customer): Promise<void> {
     await CustomerModelSequelize.update({
       name: entity.name,
-      street: entity?.adrress?.street,
-      number: entity?.adrress?.number,
-      zipcode: entity?.adrress?.zip,
-      city: entity?.adrress?.city,
+      street: entity?.address?.street,
+      number: entity?.address?.number,
+      zipcode: entity?.address?.zip,
+      city: entity?.address?.city,
       active: entity.isActive(),
       rewardPoints: entity.rewardPoints
     }, {
